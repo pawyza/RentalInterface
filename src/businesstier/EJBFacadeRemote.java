@@ -30,12 +30,21 @@ public interface EJBFacadeRemote {
     public List<String[]> getRecordStrings();
     public List<String[]> getReservationStrings();
     public List<String[]> getClientStrings();
-    public void deleteReservation(int number);
-    public void deleteTitleRecord(String id);
-    public void deleteRecord(int number);
-    public void deleteClient(int number);
+    public Long deleteReservation(int number);
+    public Long deleteTitleRecord(int number);
+    public Long deleteRecord(int number);
+    public Long deleteClient(int number);
     public String[] transformTittleRecordToString(int index);
     public int transformClientIndexToNumber(int index);
     public int transformReservationIndexToNumber(int index);
-    public String transformTitleRecordIndexToString(int index);
+    public int transformTitleRecordIndexToNumber(int index);
+    //DB
+    public void persistReservationsDB() throws Exception;
+    public void persistTitleRecordsDB() throws Exception;
+    public void persistRecordsDB() throws Exception;
+    public void persistClientsDB() throws Exception;
+    public ArrayList<String[]> showReservationsDB() throws Exception;
+    public ArrayList<String[]> showTitleRecordsDB() throws Exception;
+    public ArrayList<String[]> showRecordsDB() throws Exception;
+    public ArrayList<String[]> showClientsDB() throws Exception;
 }
